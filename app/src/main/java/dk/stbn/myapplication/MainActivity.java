@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView velkomst;
-    Button knap;
+    Button knap, knap2;
     EditText inputfelt;
 
     @Override
@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         knap = findViewById(R.id.knap);
 
         knap.setOnClickListener(this);
+        knap2.setOnClickListener(this); //samme onclicklistener
 
+        inputfelt = findViewById(R.id.editText);
 
 
 
@@ -36,12 +38,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View view) {
-        System.out.println("klikket på knappen");
-        inputfelt = findViewById(R.id.editText);
-        String navn = inputfelt.getText().toString();
-        velkomst.setText("Hej "+navn);
+    public void onClick(View view) { //view er det view som blev trykket på
 
+        if(view == knap) {
+            System.out.println("klikket på knap1");
+            String navn = inputfelt.getText().toString();
+            velkomst.setText("Hej " + navn);
+        }
+        else if (view == knap2){
+            System.out.println("Der blev klikket på knap2");
+        }
 
     }
 }
