@@ -11,22 +11,24 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    TextView velkomst;
+    Button knap;
+    EditText inputfelt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         System.out.println("hejsa");
 
-        TextView velkomst = findViewById(R.id.sune);
+        velkomst = findViewById(R.id.sune);
 
         velkomst.setText("Ny tekst");
 
-        Button knap = findViewById(R.id.knap);
+        knap = findViewById(R.id.knap);
 
         knap.setOnClickListener(this);
-        MitObj o = new MitObj();
 
-        velkomst.setText("Tallet er "+o.getTal());
 
 
 
@@ -36,9 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         System.out.println("klikket på knappen");
-        EditText inputfelt = findViewById(R.id.editText);
+        inputfelt = findViewById(R.id.editText);
         String navn = inputfelt.getText().toString();
-        TextView velkomst = findViewById(R.id.sune);
         velkomst.setText("Hej "+navn);
 
 
