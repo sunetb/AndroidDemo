@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         status = findViewById(R.id.statusfelt);
         point = findViewById(R.id.pointtal);
 
+
         knap = findViewById(R.id.knap);
         knap2 = findViewById(R.id.knap2);
         knap.setOnClickListener(this);
@@ -34,7 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         inputfelt = findViewById(R.id.editText);
 
         spil.nulstil();
+        spil.setMax(1000);
 
+        velkomst.setText("Velkommen til GÆT ET TAL! (1-"+spil.getMax()+")");
 
 
     }
@@ -45,8 +48,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             System.out.println("klikket på knap1");
             String tal = inputfelt.getText().toString();
             int gættal = Integer.parseInt(tal);
+
             spil.gæt(gættal);
-            opdater();
+            if (spil.gættetRigtigt()){
+                status.setText("hurra");
+            }
+            else {
+                status.setText("For højt? " + spil.gættetVarForHøjt());
+            }
+            //opdater();
 
         }
         else if (view == knap2){
