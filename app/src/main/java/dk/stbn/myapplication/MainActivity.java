@@ -11,9 +11,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView velkomst;
+    TextView velkomst, status, point;
     Button knap, knap2;
     EditText inputfelt;
+    GætTal spil = new GætTal();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,17 +22,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         System.out.println("hejsa");
 
-        velkomst = findViewById(R.id.sune);
-
-        velkomst.setText("Ny tekst");
+        velkomst = findViewById(R.id.overskrift);
+        status = findViewById(R.id.statusfelt);
+        point = findViewById(R.id.pointtal);
 
         knap = findViewById(R.id.knap);
-
+        knap2 = findViewById(R.id.knap2);
         knap.setOnClickListener(this);
         knap2.setOnClickListener(this); //samme onclicklistener
 
         inputfelt = findViewById(R.id.editText);
 
+        spil.nulstil();
 
 
 
@@ -39,15 +41,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) { //view er det view som blev trykket på
-
         if(view == knap) {
             System.out.println("klikket på knap1");
-            String navn = inputfelt.getText().toString();
-            velkomst.setText("Hej " + navn);
+            String tal = inputfelt.getText().toString();
+            int gættal = Integer.parseInt(tal);
+            spil.gæt(gættal);
+            opdater();
+
         }
         else if (view == knap2){
             System.out.println("Der blev klikket på knap2");
         }
+
+    }
+
+    private void opdater() {
+        velkomst.setText("Velkommen til GÆT ET TAL! (1-"+spil.getMax()+")");
+        point.setText(spil.getScore() + " Antal gæt: "+spil.getAntalGæt());
+        if(spil.gættetRigtigt())
+            status.setText("Hurra! Godt gættet!");
+        else if (spil.gættetVarForHøjt())
+            status.setText("Du gættede for højt! Prøv igen");
+        else
+            status.setText("Du gættede for lavt! Prøv igen");
 
     }
 }

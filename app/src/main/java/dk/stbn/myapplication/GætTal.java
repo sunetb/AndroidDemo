@@ -84,4 +84,8 @@ public class GætTal {
     }
 
 
+
+    public int getMax() {
+        return max;
+    }
 }
