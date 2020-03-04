@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button knap, knap2;
     EditText inputfelt;
     GætTal spil = new GætTal();
+    ImageView i;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         velkomst = findViewById(R.id.overskrift);
         status = findViewById(R.id.statusfelt);
         point = findViewById(R.id.pointtal);
+        i = findViewById(R.id.imageView);
+
+        i.setImageResource(R.drawable.ic_launcher_background);
 
 
         knap = findViewById(R.id.knap);
