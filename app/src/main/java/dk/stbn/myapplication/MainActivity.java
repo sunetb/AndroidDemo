@@ -3,6 +3,8 @@ package dk.stbn.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -60,9 +62,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         else if (view == knap2){
-            i.setImageResource(R.drawable.ic_launcher_background);
+            //i.setImageResource(R.drawable.ic_launcher_background);
 
-            System.out.println("Der blev klikket på knap2");
+            Intent hensigt = new Intent(this, Indstillinger.class);
+            startActivity(hensigt);
+
+           // System.out.println("Der blev klikket på knap2");
         }
 
     }
