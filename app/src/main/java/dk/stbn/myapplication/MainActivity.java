@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         point = findViewById(R.id.pointtal);
         i = findViewById(R.id.imageView);
 
-        i.setImageResource(R.drawable.ic_launcher_background);
 
 
         knap = findViewById(R.id.knap);
@@ -56,16 +55,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int gættal = Integer.parseInt(tal);
 
             spil.gæt(gættal);
-            if (spil.gættetRigtigt()){
-                status.setText("hurra");
-            }
-            else {
-                status.setText("For højt? " + spil.gættetVarForHøjt());
-            }
-            //opdater();
+
+            opdater();
 
         }
         else if (view == knap2){
+            i.setImageResource(R.drawable.ic_launcher_background);
+
             System.out.println("Der blev klikket på knap2");
         }
 
