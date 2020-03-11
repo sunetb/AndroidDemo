@@ -58,10 +58,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         System.out.println("onSave..."+ velkomst.getText().toString());
         outState.putString("velkomst", velkomst.getText().toString());
-        super.onSaveInstanceState(outState, outPersistentState);
+        super.onSaveInstanceState(outState);
 
     }
 
