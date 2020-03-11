@@ -59,10 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
-        System.out.println("onSave..."+ velkomst.getText().toString());
-        outState.putString("velkomst", velkomst.getText().toString());
         super.onSaveInstanceState(outState);
-
+        System.out.println("onSave..."+ status.getText().toString());
+        outState.putString("velkomst", status.getText().toString());
     }
 
     @Override
@@ -80,7 +79,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        System.out.println("OnRestore..." + savedInstanceState.getString("velkomst"));
+        String s = "OnRestore..." + savedInstanceState.getString("velkomst");
+        System.out.println(s);
+        status.setText(s);
     }
 
     @Override
